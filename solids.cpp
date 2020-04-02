@@ -1,10 +1,32 @@
 //Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x64
 
+/**
+ * File to demonstrate standalone functions
+ * Peter Brown <peter.brown@converse.edu>, 2020-04-01
+ */
+
 #include <iostream>
-#include <cstdlib>
+#include <cmath>
 using namespace std;
 
-// <Return type> <function name>([arguments])
+/**
+ * Function to calculate the volume of a regular Platonic solid
+ * 
+ * Arguments: 
+ *     faces: number of faces in the solid
+ *     side: length of one side of the solid
+ * Returns a double representing the volume of the solid, in units
+ *     based on the units of the argument SIDE.  (If side is in inches,
+ *     the return value is in cubic inches; if side is in cm, the return
+ *     value is in cm^3; and so on.)
+ * 
+ * This function does its calculation using a switch statement.
+ */
+/**
+ * Syntax for a function declaration:
+ * <return type> <functionname>([arguments]) {}
+ * where each argument is composed of a type and a name.
+ */
 double platonicvol(int faces, int side) {
     double volume = 0;
     double side3 = side * side * side;
@@ -25,10 +47,23 @@ double platonicvol(int faces, int side) {
     return volume;
 }
 
+/**
+ * Function to calculate the volume of a regular Platonic solid
+ * 
+ * Arguments: 
+ *     faces: number of faces in the solid
+ *     side: length of one side of the solid
+ * Returns a double representing the volume of the solid, in units
+ *     based on the units of the argument SIDE.  (If side is in inches,
+ *     the return value is in cubic inches; if side is in cm, the return
+ *     value is in cm^3; and so on.)
+ * 
+ * This function does its calculation using an if-else structure.
+ */
 double platonicvolif(int faces, int side) {
     double volume = 0;
     double side3 = side * side * side;
-    // If-then-else is exactly like Javascript
+    // If-else syntax is exactly like Javascript
     if (faces == 4) {
         volume = side3 * sqrt(2) / 12;
     }
@@ -47,9 +82,14 @@ double platonicvolif(int faces, int side) {
     return volume;
 }
 
+/**
+ * Main program.  Prints the volume of each kind of regular Platonic solid
+ * for side lengths 1, 2, and 3.
+ */
 int main() {
     // for-loop is much like Javascript.  
     // Note the use of a double as the loop variable, which Python would not like.
+    //   (Javascript wouldn't care, but Javascript cares little for data types anyway.)
     for (double length = 1; length < 4; length++) {
         cout << "Faces = 4, volume = " << platonicvol(4, length) << endl;
         cout << "Faces = 6, volume = " << platonicvol(6, length) << endl;
