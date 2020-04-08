@@ -9,6 +9,12 @@
 #include <cmath>
 using namespace std;
 
+// /**
+//  * Syntax for a function declaration:
+//  * <return type> <functionname>([arguments]) {}
+//  * where each argument is composed of a type and a name.
+//  */
+
 /**
  * Function to calculate the volume of a regular Platonic solid
  * 
@@ -22,27 +28,30 @@ using namespace std;
  * 
  * This function does its calculation using a switch statement.
  */
-/**
- * Syntax for a function declaration:
- * <return type> <functionname>([arguments]) {}
- * where each argument is composed of a type and a name.
- */
 double platonicvol(int faces, int side) {
     double volume = 0;
     double side3 = side * side * side;
     // Switch statement is exactly like Javascript,
     // except you can only switch on an integer
     switch (faces) {
-        case 4:     volume = side3 * sqrt(2) / 12;
-                    break;
-        case 6:     volume = side3;
-                    break;
-        case 8:     volume = side3 * sqrt(2) / 3;
-                    break;
-        case 12:    volume = side3 * (15 + 7*sqrt(5)) / 4;
-                    break;
-        case 20:    volume = side3 * (3 + sqrt(5)) * 5 / 12;
-                    break;      
+    case 4:
+	volume = side3 * sqrt(2) / 12;
+	break;
+    case 6:
+	volume = side3;
+	break;
+    case 8:
+	volume = side3 * sqrt(2) / 3;
+	break;
+    case 12:
+	volume = side3 * (15 + 7*sqrt(5)) / 4;
+	break;
+    case 20:
+	volume = side3 * (3 + sqrt(5)) * 5 / 12;
+	break;
+    default:
+	throw "Non-Platonic solid"; // Effectively an exception
+	break;
     }
     return volume;
 }
