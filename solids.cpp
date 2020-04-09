@@ -96,14 +96,32 @@ double platonicvolif(int faces, int side) {
  * for side lengths 1, 2, and 3.
  */
 int main() {
+    // Possible numbers of faces for Platonic solids
+    int numFaces[] = {4, 6, 8, 12, 20};
+
+    // We'll want the next two twice.  They're up here so I don't have to think of different names.
+    int faces; // We'll want these a little later
+    double length = 1;
     // for-loop is much like Javascript.  
     // Note the use of a double as the loop variable, which Python would not like.
     //   (Javascript wouldn't care, but Javascript cares little for data types anyway.)
-    for (double length = 1; length < 4; length++) {
-        cout << "Faces = 4, volume = " << platonicvol(4, length) << endl;
-        cout << "Faces = 6, volume = " << platonicvol(6, length) << endl;
-        cout << "Faces = 8, volume = " << platonicvol(8, length) << endl;
-        cout << "Faces = 12, volume = " << platonicvol(12, length) << endl;
-        cout << "Faces = 20, volume = " << platonicvol(20, length) << endl;
+    // Note also that there is no initiation statement, since it was already done above.
+    for (; length < 4; length++) {
+        for (int i = 0; i < 5; i++) {
+            faces = numFaces[i];
+            // The following line is spread over two lines in the file.  C++ is fine with that.
+            cout << "Faces = " << faces << ", side = " << length << ", volume = " 
+                << platonicvol(faces, length) << endl;
+        }
+        cout << endl;  // Blank line
     }
+
+    // Read a number of faces and a side length from the keyboard
+    cout << "Please enter a number of faces: ";
+    cin >> faces;
+    cout << "Please enter a side length: ";
+    cin >> length;
+    cout << "Faces = " << faces << ", side = " << length << ", volume = " 
+        << platonicvol(faces, length) << endl;
+
 }
