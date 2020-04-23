@@ -159,8 +159,35 @@ void doCleanerVectorThings() {
     printIntArrayAsChar(intVec.data(), intVec.size());
 }
 
+void calcSquares(int upperBound, vector<int> &squares) {
+    for (int i = 0; i <= upperBound; i++) {
+        squares.push_back(i*i);
+    }
+}
+
+void printSquaresTable(vector<int> &squares) {
+    // Top line
+    cout << "x\tx**2\tGrowth" << endl;
+    cout << "----------------------" << endl;
+    for (int i = 0; i < squares.size(); i++) {
+        cout << i << '\t' << squares.at(i);
+        if (i > 0) {
+            cout << "\t" << (squares.at(i) - squares.at(i-1));
+        }
+        cout << endl;
+    }
+}
+
+void createSquaresTable(int upperBound) {
+    vector<int> squaresVec;
+    calcSquares(upperBound, squaresVec);
+    printSquaresTable(squaresVec);
+}
+
 int main() {
     doUglyArrayThings();
     cout << endl;
     doCleanerVectorThings();
+    cout << endl;
+    createSquaresTable(20);
 }
