@@ -30,6 +30,10 @@
 *.exe
 *.out
 *.app
-solids
 .vscode/launch.json
 .vscode/tasks.json
+solids
+cardtests
+
+# Backup files
+*~
