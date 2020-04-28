@@ -4,7 +4,7 @@ CXXFLAGS=-Wall --std=c++14
 # Define some new variables
 OBJS=*.o
 CARDOBJS=PlayingCard.o FrenchCard.o UnoCard.o cardtests.o
-EXEFILES=cardtests
+EXEFILES=cardtests a.out
 
 # First rule is default.  cardtests relies on the object files in $(CARDOBJS), which
 #   make already knows how to make (by default).  The actual command is therefore
